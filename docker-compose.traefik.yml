@@ -1,0 +1,39 @@
+# ===================================================================
+# INFRASTRUCTURE GATEWAY - TRAEFIK
+# ===================================================================
+# This file launches the Traefik Reverse Proxy.
+# Use this if you don't already have a Traefik instance running on port 80.
+#
+# Usage : docker compose -f docker-compose.traefik.yml up -d
+# ===================================================================
+
+services:
+  traefik:
+    image: traefik:v2.10
+    restart: always
+    container_name: traefik-gateway
+    ports:
+      # Standard HTTP port
+      - "80:80"
+      # Dashboard Port (Optional, exposed via SSH tunnel or localhost)
+      - "8080:8080"
+    command:
+      # --- Global ---
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      # --- Logs ---
+      - "--log.level=INFO"
+      - "--accesslog=true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - traefik-webgateway
+
+# ===================== NETWORKS =====================
+networks:
+  # This network must have the same name as the one used in docker-compose.dev.yml
+  traefik-webgateway:
+    name: traefik-webgateway
+    driver: bridge

@@ -1,0 +1,65 @@
+{
+  "title": "My files",
+  "files_count_singular": "file",
+  "files_count_plural": "files",
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "nav": {
+    "my_files": "My files",
+    "logout": "Logout",
+    "close": "Close"
+  },
+  "filters": {
+    "all": "All",
+    "active": "Active",
+    "expired": "Expired",
+    "all_tags": "All tags"
+  },
+  "file": {
+    "expires_in_days": "Expires in {days} days",
+    "expires_tomorrow": "Expires tomorrow",
+    "expired": "Expired",
+    "expired_message": "This file has expired and is no longer stored.",
+    "uploaded_at": "Uploaded on {date}",
+    "size": "{size}"
+  },
+  "actions": {
+    "delete": "Delete",
+    "access": "Access",
+    "add_files": "Add files",
+    "copy_link": "Copy link",
+    "retry": "Retry"
+  },
+  "delete_confirm": {
+    "title": "Delete this file?",
+    "message": "This action is irreversible. The file will be permanently deleted and the download link will no longer work.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "tags": {
+    "label": "Tags",
+    "placeholder": "Add a tag...",
+    "add": "Add",
+    "remove": "Remove tag {tag}",
+    "max_reached": "Maximum {max} tags reached",
+    "edit_title": "Edit",
+    "edit_tooltip": "",
+    "update_success": "Tag successfully updated"
+  },
+  "empty": {
+    "no_files": "You don't have any files yet.",
+    "no_active_files": "No active files.",
+    "no_expired_files": "No expired files."
+  },
+  "errors": {
+    "load_failed": "Unable to load your files."
+  },
+  "toast": {
+    "file_deleted": "File deleted successfully.",
+    "link_copied": "Link copied to clipboard!",
+    "copy_failed": "Unable to copy link.",
+    "delete_failed": "Unable to delete file."
+  }
+}

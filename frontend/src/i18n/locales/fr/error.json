@@ -1,0 +1,22 @@
+{
+  "server_error": {
+    "title": "Service Interrompu",
+    "description": "Nous n'arrivons plus à joindre le serveur. Cela peut être dû à une maintenance ou à un problème de connexion.",
+    "details": "Code erreur : 500 / Erreur Réseau",
+    "actions": {
+      "retry": "Réessayer la connexion",
+      "logout": "Se déconnecter"
+    }
+  },
+  "not_found": {
+    "title": "Page introuvable",
+    "description": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
+    "action": "Retour à l'accueil"
+  },
+  "boundary": {
+    "title": "Oups, une erreur est survenue !",
+    "description": "Ne vous inquiétez pas, nos équipes ont été notifiées. Vous pouvez essayer de rafraîchir la page.",
+    "retry": "Réessayer",
+    "home": "Retour à l'accueil"
+  }
+}

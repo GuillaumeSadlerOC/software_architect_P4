@@ -1,0 +1,14 @@
+{
+  "single_tab": {
+    "title": "Session Active Elsewhere",
+    "description": "The application is already open in another tab or window.",
+    "actions": {
+      "use_here": "Use Here",
+      "logout_everywhere": "Logout Everywhere"
+    },
+    "helpers": {
+      "use_here_desc": "This will deactivate the other tab to activate this one."
+    },
+    "separator": "Or"
+  }
+}

@@ -1,0 +1,27 @@
+# ===================================================================
+# DOCKERFILE DEVELOPMENT - NESTJS
+# ===================================================================
+# This file is dedicated to local development with Hot-Reload.
+# It differs from production because it includes the devDependencies
+# and uses nodemon/webpack via the Nest CLI.
+# ===================================================================
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Installation of necessary system tools (e.g., for bcrypt or other native modules)
+RUN apk add --no-cache python3 make g++
+
+# We only copy the dependency files first to optimize the Docker cache
+COPY package*.json ./
+
+# In DEV, we install ALL dependencies (including devDependencies for on-the-fly TS building)
+# We use legacy-peer-deps to avoid minor conflicts
+RUN npm install --legacy-peer-deps
+
+# We expose the default port of NestJS
+EXPOSE 3000
+
+# Default startup command in DEV mode (Hot Reload)
+CMD ["npm", "run", "start:dev"]

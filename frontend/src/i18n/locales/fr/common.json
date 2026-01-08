@@ -1,0 +1,28 @@
+{
+  "buttons": {
+    "login": "Se connecter",
+    "logout": "Déconnexion",
+    "register": "S'inscrire",
+    "submit": "Envoyer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "back": "Retour",
+    "loading": "Chargement..."
+  },
+  "footer": {
+    "copyright": "Copyright DataShare© 2025"
+  },
+  "menu": {
+    "open": "Ouvrir le menu",
+    "close": "Fermer le menu"
+  },
+  "errors": {
+    "generic": "Une erreur est survenue",
+    "network": "Erreur de connexion",
+    "not_found": "Page non trouvée"
+  }
+}

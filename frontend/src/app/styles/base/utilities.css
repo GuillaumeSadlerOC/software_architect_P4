@@ -1,0 +1,247 @@
+/* ========================================
+   🎨 BASE UTILITIES
+   ========================================
+   Common custom utility classes.
+   NEVER MODIFY THIS FILE PER PROJECT.
+   ======================================== */
+
+@layer utilities {
+  /* ----------------------------------------
+     LAYOUT UTILITIES
+     ---------------------------------------- */
+  
+  /* Centered container with max-width */
+  .container-page {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+  }
+
+  /* Flex center shorthand */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Absolute center */
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Full viewport height minus header */
+  .min-h-screen-minus-header {
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  /* ----------------------------------------
+     VISUAL UTILITIES
+     ---------------------------------------- */
+
+  /* Gradient backgrounds */
+  .bg-gradient-page {
+    background: var(--gradient-page, linear-gradient(180deg, var(--background) 0%, var(--muted) 100%));
+  }
+
+  /* Glass effect (backdrop blur) */
+  .glass {
+    background: rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .dark .glass {
+    background: rgb(0 0 0 / 0.8);
+  }
+
+  /* Card shadow utility */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ----------------------------------------
+     INTERACTION UTILITIES
+     ---------------------------------------- */
+
+  /* Focus visible ring */
+  .focus-ring {
+    outline: none;
+  }
+  
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Clickable area expansion */
+  .click-area {
+    position: relative;
+  }
+
+  .click-area::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+  }
+
+  /* Disabled state */
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* ----------------------------------------
+     ANIMATION UTILITIES
+     ---------------------------------------- */
+
+  /* Fade in */
+  .animate-fade-in {
+    animation: fade-in var(--duration-normal) var(--ease-out);
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Slide up */
+  .animate-slide-up {
+    animation: slide-up var(--duration-normal) var(--ease-out);
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Spin (loading) */
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Pulse (skeleton loading) */
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  /* ----------------------------------------
+     ACCESSIBILITY UTILITIES
+     ---------------------------------------- */
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Not screen reader only (cancel sr-only) */
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Reduce motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ----------------------------------------
+     TEXT UTILITIES
+     ---------------------------------------- */
+
+  /* Truncate with ellipsis */
+  .truncate-lines-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-lines-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ----------------------------------------
+     FORM UTILITIES
+     ---------------------------------------- */
+
+  /* Input base (shared between input, textarea, select) */
+  .input-base {
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--input);
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--body-size);
+    transition: border-color var(--duration-fast) var(--ease-default),
+                box-shadow var(--duration-fast) var(--ease-default);
+  }
+
+  .input-base:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px rgb(var(--ring) / 0.2);
+  }
+
+  .input-base::placeholder {
+    color: var(--muted-foreground);
+  }
+
+  .input-base:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

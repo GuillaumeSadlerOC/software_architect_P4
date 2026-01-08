@@ -1,0 +1,161 @@
+{
+  "header": {
+    "title": "Mon Compte",
+    "description_general": "Gérez vos informations personnelles et vos préférences.",
+    "description_security": "Gérez vos identifiants de connexion et la sécurité."
+  },
+  "nav": {
+    "general": "Général",
+    "security": "Sécurité"
+  },
+  "general": {
+    "meta_title": "Mon Profil",
+    "meta_description": "Gérez vos informations personnelles",
+    "sections": {
+      "identity": {
+        "title": "Identité",
+        "description": "Ces informations sont visibles sur votre profil public."
+      }
+    },
+    "form": {
+      "submit": "Enregistrer les modifications"
+    },
+    "fields": {
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "username": "Nom d'utilisateur",
+      "email": "Adresse E-mail"
+    },
+    "notifications": {
+      "success": "Profil mis à jour",
+      "error": "Erreur lors de la mise à jour"
+    }
+  },
+  "security": {
+    "meta_title": "Sécurité du compte",
+    "meta_description": "Gérez votre mot de passe et vos accès.",
+    "sections": {
+      "email": {
+        "title": "Adresse E-mail",
+        "description": "Utilisée pour la connexion et la récupération de compte."
+      },
+      "password": {
+        "title": "Mot de passe",
+        "description": "Nous recommandons d'utiliser un mot de passe fort et unique."
+      },
+      "danger": {
+        "title": "Zone de danger",
+        "description": "Actions irréversibles relatives à votre compte."
+      }
+    },
+    "password_change": {
+      "labels": {
+        "current_password": "Mot de passe actuel",
+        "new_password": "Nouveau mot de passe",
+        "confirm_password": "Confirmer"
+      },
+      "placeholders": {
+        "current": "••••••••",
+        "new": "Minimum 8 caractères",
+        "confirm": "Répétez le mot de passe"
+      },
+      "submit": "Changer le mot de passe",
+      "loading": "Modification...",
+      "notifications": {
+        "success": "Mot de passe modifié",
+        "success_desc": "Vous pouvez désormais utiliser votre nouveau mot de passe.",
+        "error_incorrect": "L'ancien mot de passe est incorrect.",
+        "error_generic": "Erreur lors du changement de mot de passe."
+      }
+    },
+    "email": {
+      "title": "Adresse E-mail",
+      "description": "Utilisée pour la connexion et la récupération de compte.",
+      "current_label": "Email actuel",
+      "form": {
+        "label_new": "Nouvelle adresse email",
+        "placeholder": "nouveau@exemple.com",
+        "help": "Vous devrez cliquer sur un lien envoyé à cette adresse pour valider le changement.",
+        "submit": "Envoyer le lien de validation"
+      },
+      "alert": {
+        "title": "Vérification requise",
+        "description": "Un lien de confirmation a été envoyé à la nouvelle adresse."
+      },
+      "notifications": {
+        "success": "Email envoyé",
+        "success_desc": "Vérifiez votre nouvelle boîte mail.",
+        "error_conflict": "Cet email est déjà utilisé.",
+        "error_generic": "Erreur serveur."
+      }
+    },
+    "danger": {
+      "title": "Zone de danger",
+      "description": "Actions irréversibles relatives à votre compte.",
+      "card_title": "Supprimer le compte",
+      "card_desc": "La suppression de votre compte est irréversible.",
+      "warning_text": "Toutes vos données (projets, agents, historiques) seront effacées définitivement. Vous ne pourrez plus vous connecter.",
+      "btn_trigger": "Supprimer mon compte",
+      "modal": {
+        "title": "Confirmation requise",
+        "description": "Pour continuer, veuillez entrer votre mot de passe actuel. Un email de validation finale vous sera envoyé.",
+        "label_password": "Mot de passe actuel",
+        "btn_cancel": "Annuler",
+        "btn_confirm": "Envoyer l'email de suppression"
+      },
+      "notifications": {
+        "success": "Email de confirmation envoyé.",
+        "error_password": "Mot de passe incorrect.",
+        "error_generic": "Erreur technique."
+      }
+    }
+  },
+  "verify_email": {
+    "meta_title": "Vérification Email",
+    "title": "Validation de l'email",
+    "description": "Confirmation de votre changement d'adresse.",
+    "loading": "Validation du jeton en cours...",
+    "invalid_link": {
+      "title": "Lien invalide",
+      "description": "Le jeton de vérification est manquant ou mal formé."
+    },
+    "success": {
+      "title": "Succès !",
+      "description": "Votre adresse email a été mise à jour avec succès."
+    },
+    "error": {
+      "title": "Échec de la vérification",
+      "description": "Le lien est peut-être expiré, invalide, ou déjà utilisé."
+    },
+    "notifications": {
+      "success": "Email validé avec succès !"
+    },
+    "actions": {
+      "back_to_profile": "Retour au profil"
+    }
+  },
+  "delete_account": {
+    "meta_title": "Suppression de compte",
+    "meta_description": "Confirmation finale de la suppression.",
+    "title": "Suppression de compte",
+    "invalid_link": {
+      "title": "Lien invalide",
+      "description": "Le jeton de suppression est manquant ou invalide."
+    },
+    "confirm": {
+      "title": "Ceci est la dernière étape.",
+      "description": "En cliquant sur le bouton ci-dessous, votre compte et toutes vos données seront supprimés <strong>définitivement</strong>.",
+      "submit": "Oui, supprimer définitivement",
+      "cancel": "Annuler et retourner à l'accueil"
+    },
+    "success": {
+      "message": "Votre compte a été supprimé avec succès.",
+      "action": "Retour à l'accueil"
+    },
+    "error": {
+      "title": "Erreur lors de la suppression",
+      "description": "Ce lien est probablement expiré ou a déjà été utilisé.",
+      "action": "Retour à la connexion"
+    }
+  }
+}

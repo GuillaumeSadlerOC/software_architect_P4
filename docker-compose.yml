@@ -1,0 +1,139 @@
+services:
+
+  # ===================== POSTGRESQL (DATABASE) =====================
+  postgresql:
+    image: postgres:16-alpine
+    container_name: ${PROJECT_NAME}-postgresql
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - internal-app-network
+  
+  # ===================== REDIS (CACHE) =====================
+  redis:
+    image: redis:alpine
+    container_name: ${PROJECT_NAME}-redis
+    restart: always
+    env_file: .env
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD} ping | grep PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    volumes:
+      - ./volumes/redis:/data
+    networks:
+      - internal-app-network
+  
+  # ===================== BACKEND (NestJS) =====================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: ${PROJECT_NAME}-backend
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    volumes:
+      - ./backend:/app # [DEV] : hot-reload
+      - /app/node_modules
+      - ./volumes/uploads:/app/uploads
+    networks:
+      - traefik-webgateway
+      - internal-app-network
+    labels:
+      - traefik.enable=true
+      # ROUTER 1: ADMIN
+      - traefik.http.routers.${PROJECT_NAME}-backend-admin.rule=Host(`${DOMAIN_API}`) && PathPrefix(`/admin`)
+      - traefik.http.routers.${PROJECT_NAME}-backend-admin.entrypoints=web
+      - traefik.http.routers.${PROJECT_NAME}-backend-admin.priority=100
+      # ROUTER 2: API (Host)
+      - traefik.http.routers.${PROJECT_NAME}-backend-api.rule=Host(`${DOMAIN_API}`)
+      - traefik.http.routers.${PROJECT_NAME}-backend-api.entrypoints=web
+      - traefik.http.routers.${PROJECT_NAME}-backend-api.priority=50
+      # SERVICE
+      - traefik.http.services.${PROJECT_NAME}-backend.loadbalancer.server.port=3000
+
+  # ===================== MEDIA SERVER (Nginx) =====================
+  media:
+    image: nginx:alpine
+    container_name: ${PROJECT_NAME}-media
+    restart: always
+    volumes:
+      - ./volumes/uploads:/usr/share/nginx/html/uploads:ro
+    networks:
+      - traefik-webgateway
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${PROJECT_NAME}-media.rule=Host(`${DOMAIN_API}`) && PathPrefix(`/uploads`)
+      - traefik.http.routers.${PROJECT_NAME}-media.entrypoints=web
+      - traefik.http.routers.${PROJECT_NAME}-media.priority=200
+
+  # ===================== FRONTEND (Next.js) =====================
+  frontend:
+    build: 
+      context: ./frontend
+      target: dev
+      args:
+        - SKIP_ENV_VALIDATION=1
+        - NEXT_PUBLIC_API_URL=http://${DOMAIN_API}/api/v1
+        - NEXT_PUBLIC_APP_URL=http://${DOMAIN_FRONT}
+    container_name: ${PROJECT_NAME}-frontend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+      - INTERNAL_API_URL=http://backend:3000/api
+      - ALLOWED_IMAGE_DOMAINS=${DOMAIN_API},${DOMAIN_FRONT}
+      - NEXT_PUBLIC_API_URL=http://${DOMAIN_API}/api
+      - NEXT_PUBLIC_APP_URL=http://${DOMAIN_FRONT}
+    volumes:
+      - ./frontend:/app    # [DEV] : hot-reload
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - traefik-webgateway
+      - internal-app-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${PROJECT_NAME}-frontend.rule=Host(`${DOMAIN_FRONT}`)
+      - traefik.http.routers.${PROJECT_NAME}-frontend.entrypoints=web
+      - traefik.http.services.${PROJECT_NAME}-frontend.loadbalancer.server.port=3000
+      - traefik.http.routers.${PROJECT_NAME}-frontend.priority=90
+    extra_hosts:
+      - "${DOMAIN_API}:host-gateway"
+
+# ===================== NETWORKS =====================
+networks:
+
+  # Public network
+  traefik-webgateway:
+    external: true
+
+  # Private network project
+  internal-app-network:
+    name: ${PROJECT_NAME}-internal-network
+    driver: bridge

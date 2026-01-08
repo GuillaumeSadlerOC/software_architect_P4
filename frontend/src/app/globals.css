@@ -1,0 +1,176 @@
+/* ========================================
+   GLOBAL CSS - ENTRY POINT
+   ========================================
+   This file imports all styles in the correct order.
+   
+   Structure :
+   1. Tailwind base
+   2. Base tokens
+   3. Typography
+   4. Theme (customizable per project)
+   5. Utilities
+   6. Tailwind utilities & animations
+   ======================================== */
+
+/* ========================================
+   1. TAILWIND
+   ======================================== */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ========================================
+   2. BASE (never modify)
+   ======================================== */
+@import "./styles/base/tokens.css";
+@import "./styles/base/typography.css";
+@import "./styles/base/utilities.css";
+
+/* ========================================
+   3. THEME - OVERLOADED BY PROJECT
+   ======================================== 
+
+/* DataShare Theme */
+@import "./styles/themes/datashare.css";
+
+/* ========================================
+   4. TAILWIND V4 CONFIGURATION
+   ========================================
+   Mapping CSS variables to Tailwind
+   to use classes like :
+   - bg-primary, text-foreground, border-border
+   ======================================== */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+  
+  /* Base */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Card & Popover */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  /* Primary (Dark header button) */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  /* Secondary (Orange outline button) */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-border: var(--secondary-border);
+  
+  /* Muted (Secondary texts, placeholders) */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  /* Accent (Links, tertiary actions - bright orange) */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  /* Destructive (Mistakes, dangerous actions) */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Success */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  
+  /* Warning */
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  
+  /* Info */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* ========================================
+     FORMS
+     ======================================== */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-label: var(--color-label);
+
+  /* ========================================
+     DATA VISUALIZATION
+     ======================================== */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* ========================================
+     SIDEBAR
+     ======================================== */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ========================================
+     DECORATIVE (DataShare Specific)
+     ======================================== */
+  --color-decorative-outer: var(--decorative-outer);
+  --color-decorative-inner: var(--decorative-inner);
+  --color-decorative-icon: var(--decorative-icon);
+
+  /* ========================================
+     RADIUS
+     ======================================== */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-card: var(--radius-card, 1rem);
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+  --shadow-card: var(--shadow-card);
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  --header-height: var(--header-height);
+  --footer-height: var(--footer-height);
+  --card-max-width: var(--card-max-width);
+}
+
+/* ========================================
+   5. BASE LAYER DEFAULTS
+   ======================================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  /* Headings use the font display */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}

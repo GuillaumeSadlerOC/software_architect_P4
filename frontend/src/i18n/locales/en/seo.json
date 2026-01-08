@@ -1,0 +1,13 @@
+{
+  "site_name": "DataShare",
+  "description": "Allows anonymous or registered users to transfer files via temporary download links, with protection and management options for logged-in users.",
+  "keywords": "Files, Download, Upload",
+  "application_name": "DataShare",
+  "creator": "DataShare Team",
+  "publisher": "DataShare",
+  "open_graph": {
+    "site_name": "DataShare",
+    "locale": "en_US",
+    "type": "website"
+  }
+}

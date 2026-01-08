@@ -1,0 +1,14 @@
+{
+  "single_tab": {
+    "title": "Session active ailleurs",
+    "description": "L'application est déjà ouverte dans un autre onglet ou une autre fenêtre.",
+    "actions": {
+      "use_here": "Utiliser ici",
+      "logout_everywhere": "Se déconnecter partout"
+    },
+    "helpers": {
+      "use_here_desc": "Cela désactivera l'autre onglet pour activer celui-ci."
+    },
+    "separator": "Ou"
+  }
+}

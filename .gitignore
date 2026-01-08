@@ -1,0 +1,70 @@
+# =======================================================
+# GENERAL & SYSTEM
+# =======================================================
+# Node dependencies (throughout the project)
+**/node_modules/
+**/.pnp
+**/.pnp.js
+
+# System logs and debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# System files (Mac/Windows/Linux)
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# =======================================================
+# SAFETY & ENVIRONMENT
+# =======================================================
+# All .env files except the example
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# =======================================================
+# INFRASTRUCTURE & DOCKER
+# =======================================================
+# Persistent data (Database, Redis, Uploads)
+# WARNING: Never commit database data!
+volumes/
+
+# =======================================================
+# BACKEND (NestJS)
+# =======================================================
+backend/dist/
+backend/coverage/
+backend/test/coverage/
+
+# Files uploaded locally (excluding Docker volume if used in direct development)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# =======================================================
+# FRONTEND (Next.js)
+# =======================================================
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/coverage/
+
+# Cypress artifacts (videos and screenshots of failed tests)
+frontend/cypress/videos/
+frontend/cypress/screenshots/
+
+# =======================================================
+# PERFORMANCE TESTS (k6)
+# =======================================================
+# If k6 generates local reports
+tests/k6/summary.html
+tests/k6/results.json

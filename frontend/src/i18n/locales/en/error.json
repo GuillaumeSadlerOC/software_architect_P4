@@ -1,0 +1,22 @@
+{
+  "server_error": {
+    "title": "Service Interrupted",
+    "description": "We can no longer reach the server. This may be due to maintenance or a connection issue.",
+    "details": "Error code: 500 / Network Error",
+    "actions": {
+      "retry": "Retry connection",
+      "logout": "Logout"
+    }
+  },
+  "not_found": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "action": "Back to home"
+  },
+  "boundary": {
+    "title": "Oops, something went wrong!",
+    "description": "Don't worry, our team has been notified. You can try refreshing the page.",
+    "retry": "Try again",
+    "home": "Back to home"
+  }
+}

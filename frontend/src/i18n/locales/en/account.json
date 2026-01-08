@@ -1,0 +1,161 @@
+{
+  "header": {
+    "title": "My Account",
+    "description_general": "Manage your personal information and preferences.",
+    "description_security": "Manage your login credentials and security settings."
+  },
+  "nav": {
+    "general": "General",
+    "security": "Security"
+  },
+  "general": {
+    "meta_title": "My Profile",
+    "meta_description": "Manage your personal information",
+    "sections": {
+      "identity": {
+        "title": "Identity",
+        "description": "This information is visible on your public profile."
+      }
+    },
+    "form": {
+      "submit": "Save Changes"
+    },
+    "fields": {
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "username": "Username",
+      "email": "Email Address"
+    },
+    "notifications": {
+      "success": "Profile updated",
+      "error": "Update failed"
+    }
+  },
+  "security": {
+    "meta_title": "Account Security",
+    "meta_description": "Manage your password and access.",
+    "sections": {
+      "email": {
+        "title": "Email Address",
+        "description": "Used for login and account recovery."
+      },
+      "password": {
+        "title": "Password",
+        "description": "We recommend using a strong and unique password."
+      },
+      "danger": {
+        "title": "Danger Zone",
+        "description": "Irreversible actions related to your account."
+      }
+    },
+    "password_change": {
+      "labels": {
+        "current_password": "Current Password",
+        "new_password": "New Password",
+        "confirm_password": "Confirm"
+      },
+      "placeholders": {
+        "current": "••••••••",
+        "new": "Minimum 8 characters",
+        "confirm": "Repeat the password"
+      },
+      "submit": "Change Password",
+      "loading": "Updating...",
+      "notifications": {
+        "success": "Password Updated",
+        "success_desc": "You can now use your new password.",
+        "error_incorrect": "The current password is incorrect.",
+        "error_generic": "Error changing password."
+      }
+    },
+    "email": {
+      "title": "Email Address",
+      "description": "Used for login and account recovery.",
+      "current_label": "Current Email",
+      "form": {
+        "label_new": "New Email Address",
+        "placeholder": "new@example.com",
+        "help": "You will need to click a link sent to this address to validate the change.",
+        "submit": "Send Validation Link"
+      },
+      "alert": {
+        "title": "Verification Required",
+        "description": "A confirmation link has been sent to the new address."
+      },
+      "notifications": {
+        "success": "Email Sent",
+        "success_desc": "Please check your new inbox.",
+        "error_conflict": "This email is already in use.",
+        "error_generic": "Server error."
+      }
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "description": "Irreversible actions related to your account.",
+      "card_title": "Delete Account",
+      "card_desc": "Deleting your account is irreversible.",
+      "warning_text": "All your data (projects, agents, history) will be permanently deleted. You will no longer be able to log in.",
+      "btn_trigger": "Delete my account",
+      "modal": {
+        "title": "Confirmation Required",
+        "description": "To continue, please enter your current password. A final validation email will be sent to you.",
+        "label_password": "Current Password",
+        "btn_cancel": "Cancel",
+        "btn_confirm": "Send deletion email"
+      },
+      "notifications": {
+        "success": "Confirmation email sent.",
+        "error_password": "Incorrect password.",
+        "error_generic": "Technical error."
+      }
+    }
+  },
+  "verify_email": {
+    "meta_title": "Email Verification",
+    "title": "Email Validation",
+    "description": "Confirming your address change.",
+    "loading": "Validating token...",
+    "invalid_link": {
+      "title": "Invalid Link",
+      "description": "The verification token is missing or malformed."
+    },
+    "success": {
+      "title": "Success!",
+      "description": "Your email address has been successfully updated."
+    },
+    "error": {
+      "title": "Verification Failed",
+      "description": "The link may be expired, invalid, or already used."
+    },
+    "notifications": {
+      "success": "Email successfully validated!"
+    },
+    "actions": {
+      "back_to_profile": "Back to profile"
+    }
+  },
+  "delete_account": {
+    "meta_title": "Delete Account",
+    "meta_description": "Final confirmation for account deletion.",
+    "title": "Delete Account",
+    "invalid_link": {
+      "title": "Invalid Link",
+      "description": "The deletion token is missing or invalid."
+    },
+    "confirm": {
+      "title": "This is the final step.",
+      "description": "By clicking the button below, your account and all your data will be <strong>permanently</strong> deleted.",
+      "submit": "Yes, permanently delete",
+      "cancel": "Cancel and return to home"
+    },
+    "success": {
+      "message": "Your account has been successfully deleted.",
+      "action": "Return to home"
+    },
+    "error": {
+      "title": "Deletion Error",
+      "description": "This link may be expired or already used.",
+      "action": "Return to login"
+    }
+  }
+}

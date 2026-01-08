@@ -1,0 +1,41 @@
+{
+  "anonymous": {
+    "notice": "Ajouter un fichier"
+  },
+  "hero": {
+    "title": "Tu veux partager un fichier ?",
+    "upload_button": "Cliquer pour téléverser un fichier"
+  },
+  "form": {
+    "title": "Ajouter un fichier",
+    "select_file": "Sélectionner un fichier",
+    "change": "Changer",
+    "password": "Mot de passe",
+    "password_placeholder": "Optionnel",
+    "expiration": "Expiration",
+    "submit": "Téléverser",
+    "new_upload": "Téléverser",
+    "copy_link": "Copier le lien",
+    "copied": "Copié !",
+    "optional": "Facultatif",
+    "uploading": "Téléchargement",
+    "share_link_label": "Lien de partage"
+  },
+  "expiration_options": {
+    "1": "Une journée",
+    "2": "2 jours",
+    "3": "3 jours",
+    "7": "Une semaine"
+  },
+  "errors": {
+    "file_too_large": "La taille des fichiers est limitée à 1 Go",
+    "upload_failed": "Échec du téléversement. Veuillez réessayer."
+  },
+  "success": {
+    "message": "Félicitations, ton fichier sera conservé chez nous pendant une semaine !"
+  },
+  "validation": {
+    "password_too_short": "Mot de passe trop court",
+    "file_too_large": "Fichier trop volumineux"
+  }
+}

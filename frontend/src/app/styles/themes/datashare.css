@@ -1,0 +1,262 @@
+/* ========================================
+   🎨 DATASHARE THEME
+   ========================================
+   Theme based from the Figma DataShare.
+   
+   Main palette :
+   - Gradient : #FFB88C → #DE6262 (Peach orange → Coral red)
+   - Primary dark : #2C2C2C (Header button)
+   - Accent orange : #E27F29, #BA681F
+   - Cards : #FFFFFF with shadow
+   
+   Typography :
+   - Display/Headings : DM Sans
+   - Body/Labels : Inter
+   ======================================== */
+
+@layer theme {
+  :root {
+    /* ========================================
+       FONTS
+       ======================================== 
+       Defined here, loaded into layout.tsx
+       with next/font/google
+       ======================================== */
+    --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+    /* ========================================
+       BASE COLORS
+       ======================================== */
+    
+    /* Background - The characteristic gradient */
+    --background: oklch(0.97 0.01 60);       /* #FFF7F7 - Very slightly pink background */
+    --foreground: oklch(0.15 0 0);           /* #000000 - Black text */
+
+    /* Page gradient (DataShare signature) */
+    --gradient-brand: linear-gradient(172.84deg, #FFB88C 2.29%, #DE6262 97.71%);
+    --gradient-page: var(--gradient-brand);
+
+    /* ========================================
+       CARDS & POPOVERS
+       ======================================== */
+    --card: oklch(1 0 0);                    /* #FFFFFF */
+    --card-foreground: oklch(0.15 0 0);      /* #000000 */
+    
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.15 0 0);
+
+    /* Shadow specific to DataShare cards */
+    --shadow-card: 0 0 12px rgba(0, 0, 0, 0.25);
+
+    /* ========================================
+       PRIMARY - Dark button (Header "Upload")
+       ======================================== */
+    --primary: oklch(0.25 0 0);                /* #2C2C2C */
+    --primary-foreground: oklch(0.95 0.01 60); /* #F3EEEA */
+
+    /* ========================================
+       SECONDARY - Orange outline button
+       ======================================== 
+       background: rgba(255, 129, 45, 0.13)
+       border: rgba(205, 94, 20, 0.5)
+       text: #BA681F
+       ======================================== */
+    --secondary: oklch(0.92 0.05 55);            /* Very light transparent orange */
+    --secondary-foreground: oklch(0.52 0.14 55); /* #BA681F */
+    
+    /* Specific border for secondary */
+    --secondary-border: oklch(0.55 0.15 50 / 0.5); /* rgba(205, 94, 20, 0.5) */
+
+    /* ========================================
+       MUTED - Secondary texts, placeholders
+       ======================================== */
+    --muted: oklch(0.95 0 0);                /* Very light gray */
+    --muted-foreground: oklch(0.75 0 0);     /* #B3B3B3 - Placeholder */
+
+    /* ========================================
+       ACCENT - Links, tertiary actions
+       ======================================== 
+       Color : #E27F29 (bright orange)
+       ======================================== */
+    --accent: oklch(0.65 0.18 55);           /* #E27F29 */
+    --accent-foreground: oklch(1 0 0);       /* White */
+
+    /* ========================================
+       FEEDBACK COLORS
+       ======================================== */
+    --destructive: oklch(0.55 0.22 25);      /* Red */
+    --destructive-foreground: oklch(1 0 0);
+
+    --success: oklch(0.6 0.18 145);          /* Green */
+    --success-foreground: oklch(1 0 0);
+
+    --warning: oklch(0.65 0.18 55);          /* Orange */
+    --warning-foreground: oklch(0.15 0 0);
+
+    --info: oklch(0.6 0.12 250);             /* Blue */
+    --info-foreground: oklch(1 0 0);
+
+    /* ========================================
+       FORMS
+       ======================================== */
+    --border: oklch(0.88 0 0);               /* #D9D9D9 */
+    --input: oklch(1 0 0);                   /* #FFFFFF */
+    --ring: oklch(0.65 0.18 55);             /* Orange accent for focus */
+
+    /* ========================================
+       DECORATIVE ELEMENTS
+       ======================================== 
+       Decorative circles on the upload page
+       ======================================== */
+    --decorative-outer: oklch(0.35 0.05 40 / 0.15); /* rgba(47, 25, 13, 0.15) */
+    --decorative-inner: oklch(0.15 0.03 300);       /* #100218 - very dark purple */
+    --decorative-icon: oklch(0.95 0.03 25);         /* #FFEEEC - Pale pink for icons */
+
+    /* ========================================
+       LAYOUT SPECIFICS
+       ======================================== */
+    --header-height: 72px;
+    --footer-height: 56px;
+    --card-max-width: 640px;
+    --card-max-width-mobile: 345px;
+
+    /* ========================================
+       TYPOGRAPHY OVERRIDES
+       ======================================== 
+       Specific sizes of the Figma DataShare
+       ======================================== */
+    --h1-size: 2rem;           /* 32px - "DataShare" logo */
+    --h2-size: 1.75rem;        /* 28px - "Login", "Create an account" */
+    --text-xlarge: 1.875rem;   /* 30px - "Do you want to share a file?" */
+
+    /* ========================================
+       DATA VISUALIZATION
+       ======================================== */
+    --chart-1: oklch(0.62 0.18 25);   /* Coral red (brand) */
+    --chart-2: oklch(0.75 0.15 55);   /* Peach orange (brand) */
+    --chart-3: oklch(0.65 0.18 55);   /* Orange accent */
+    --chart-4: oklch(0.52 0.14 55);   /* Dark orange */
+    --chart-5: oklch(0.55 0.22 25);   /* Red */
+  }
+
+  /* ========================================
+     DARK MODE
+     ======================================== */
+  .dark {
+    --background: oklch(0.15 0.02 25);       /* Slightly warm dark background */
+    --foreground: oklch(0.95 0.01 60);       /* Cream text */
+
+    /* Dark gradient */
+    --gradient-brand: linear-gradient(172.84deg, oklch(0.45 0.12 55) 2.29%, oklch(0.40 0.15 25) 97.71%);
+    --gradient-page: var(--gradient-brand);
+
+    /* Cards */
+    --card: oklch(0.2 0.02 25);
+    --card-foreground: oklch(0.95 0.01 60);
+    
+    --popover: oklch(0.2 0.02 25);
+    --popover-foreground: oklch(0.95 0.01 60);
+
+    /* Primary reversed */
+    --primary: oklch(0.95 0.01 60);
+    --primary-foreground: oklch(0.2 0 0);
+
+    /* Secondary */
+    --secondary: oklch(0.3 0.05 55);
+    --secondary-foreground: oklch(0.75 0.15 55);
+
+    /* Muted */
+    --muted: oklch(0.25 0.02 25);
+    --muted-foreground: oklch(0.65 0 0);
+
+    /* Accent (remains sharp) */
+    --accent: oklch(0.7 0.2 55);
+    --accent-foreground: oklch(0.15 0 0);
+
+    /* Forms */
+    --border: oklch(0.3 0.02 25);
+    --input: oklch(0.2 0.02 25);
+    --ring: oklch(0.7 0.2 55);
+
+    /* Decorative */
+    --decorative-outer: oklch(0.6 0.1 55 / 0.2);
+    --decorative-inner: oklch(0.25 0.05 300);
+    --decorative-icon: oklch(0.9 0.05 55);
+  }
+}
+
+/* ========================================
+   DATASHARE SPECIFIC UTILITIES
+   ======================================== 
+   Project-specific utility classes.
+   Prefixed with "ds-" to avoid conflicts.
+   ======================================== */
+
+@layer utilities {
+  /* Background gradient signature */
+  .ds-bg-gradient {
+    background: var(--gradient-brand);
+  }
+
+  /* Card style DataShare */
+  .ds-card {
+    background: var(--card);
+    box-shadow: var(--shadow-card);
+    border-radius: 1rem; /* 16px */
+    padding: 1.5rem;     /* 24px */
+  }
+
+  /* DataShare style secondary button (outline orange) */
+  .ds-btn-secondary {
+    background: oklch(0.92 0.05 55 / 0.13);
+    border: 1px solid var(--secondary-border);
+    color: var(--secondary-foreground);
+  }
+
+  .ds-btn-secondary:hover {
+    background: oklch(0.92 0.05 55 / 0.25);
+  }
+
+  /* External decorative circle */
+  .ds-circle-outer {
+    background: var(--decorative-outer);
+    border-radius: 50%;
+  }
+
+  /* Internal decorative circle */
+  .ds-circle-inner {
+    background: var(--decorative-inner);
+    border-radius: 50%;
+  }
+
+  /* "Tag" style text (Do you want to share a file?) */
+  .ds-text-hero {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--text-xlarge);
+    line-height: 1.33;
+    text-align: center;
+  }
+
+  /* Header container */
+  .ds-header {
+    height: var(--header-height);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Footer container */
+  .ds-footer {
+    height: var(--footer-height);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "anonymous": {
+    "notice": "Add a file"
+  },
+  "hero": {
+    "title": "Want to share a file?",
+    "upload_button": "Click to upload a file"
+  },
+  "form": {
+    "title": "Add a file",
+    "select_file": "Select a file",
+    "change": "Change",
+    "password": "Password",
+    "password_placeholder": "Optional",
+    "expiration": "Expiration",
+    "submit": "Upload",
+    "new_upload": "Upload",
+    "copy_link": "Copy link",
+    "copied": "Copied!",
+    "optional": "Optional",
+    "uploading": "Uploading",
+    "share_link_label": "Share link"
+  },
+  "expiration_options": {
+    "1": "One day",
+    "2": "2 days",
+    "3": "3 days",
+    "7": "One week"
+  },
+  "errors": {
+    "file_too_large": "File size is limited to 1 GB",
+    "upload_failed": "Upload failed. Please try again."
+  },
+  "success": {
+    "message": "Congratulations, your file will be kept with us for a week!"
+  },
+  "validation": {
+    "password_too_short": "Password too short",
+    "file_too_large": "File too large"
+  }
+}

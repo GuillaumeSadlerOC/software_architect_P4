@@ -1,0 +1,22 @@
+{
+  "page_title": "Download a file",
+  "page_description": "Download your file shared via DataShare",
+  "title": "Download a file",
+  "password_label": "Password",
+  "password_placeholder": "Enter the password...",
+  "download_button": "Download",
+  "downloading": "Downloading...",
+  "status": {
+    "expires_in_days": "This file will expire in {days} days.",
+    "expires_tomorrow": "This file will expire tomorrow.",
+    "expired": "This file is no longer available for download as it has expired."
+  },
+  "errors": {
+    "invalid_password": "Incorrect password. Please try again.",
+    "download_failed": "Download failed. Please try again.",
+    "file_not_found": "This file does not exist or has been deleted."
+  },
+  "toast": {
+    "download_started": "Download started"
+  }
+}

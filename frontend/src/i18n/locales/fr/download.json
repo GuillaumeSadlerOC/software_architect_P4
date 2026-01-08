@@ -1,0 +1,22 @@
+{
+  "page_title": "Télécharger un fichier",
+  "page_description": "Téléchargez votre fichier partagé via DataShare",
+  "title": "Télécharger un fichier",
+  "password_label": "Mot de passe",
+  "password_placeholder": "Saisissez le mot de passe...",
+  "download_button": "Télécharger",
+  "downloading": "Téléchargement...",
+  "status": {
+    "expires_in_days": "Ce fichier expirera dans {days} jours.",
+    "expires_tomorrow": "Ce fichier expirera demain.",
+    "expired": "Ce fichier n'est plus disponible en téléchargement car il a expiré."
+  },
+  "errors": {
+    "invalid_password": "Mot de passe incorrect. Veuillez réessayer.",
+    "download_failed": "Échec du téléchargement. Veuillez réessayer.",
+    "file_not_found": "Ce fichier n'existe pas ou a été supprimé."
+  },
+  "toast": {
+    "download_started": "Téléchargement lancé"
+  }
+}

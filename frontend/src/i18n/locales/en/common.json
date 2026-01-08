@@ -1,0 +1,28 @@
+{
+  "buttons": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "loading": "Loading..."
+  },
+  "footer": {
+    "copyright": "Copyright DataShare© 2025"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "network": "Connection error",
+    "not_found": "Page not found"
+  }
+}

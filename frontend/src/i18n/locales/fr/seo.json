@@ -1,0 +1,13 @@
+{
+  "site_name": "DataShare",
+  "description": "Permet à des utilisateurs, anonymes ou enregistrés, de transférer des fichiers via des liens de téléchargement temporaires, avec des options de protection et de gestion pour les utilisateurs connectés.",
+  "keywords": "Fichiers, Téléchargement",
+  "application_name": "DataShare",
+  "creator": "DataShare Team",
+  "publisher": "DataShare",
+  "open_graph": {
+    "site_name": "DataShare",
+    "locale": "fr_FR",
+    "type": "website"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Mes fichiers",
+  "files_count_singular": "fichier",
+  "files_count_plural": "fichiers",
+  "common": {
+    "cancel": "Fermer",
+    "save": "Sauvegarder"
+  },
+  "nav": {
+    "my_files": "Mes fichiers",
+    "logout": "Déconnexion",
+    "close": "Fermer"
+  },
+  "filters": {
+    "all": "Tous",
+    "active": "Actifs",
+    "expired": "Expiré",
+    "all_tags": "Tous les tags"
+  },
+  "file": {
+    "expires_in_days": "Expire dans {days} jours",
+    "expires_tomorrow": "Expire demain",
+    "expired": "Expiré",
+    "expired_message": "Ce fichier a expiré, il n'est plus stocké chez nous.",
+    "uploaded_at": "Envoyé le {date}",
+    "size": "{size}"
+  },
+  "actions": {
+    "delete": "Supprimer",
+    "access": "Accéder",
+    "add_files": "Ajouter des fichiers",
+    "copy_link": "Copier le lien",
+    "retry": "Réessayer"
+  },
+  "delete_confirm": {
+    "title": "Supprimer ce fichier ?",
+    "message": "Cette action est irréversible. Le fichier sera définitivement supprimé et le lien de téléchargement ne fonctionnera plus.",
+    "confirm": "Supprimer",
+    "cancel": "Annuler"
+  },
+  "tags": {
+    "label": "Tags",
+    "placeholder": "Ajouter un tag...",
+    "add": "Ajouter",
+    "remove": "Supprimer le tag {tag}",
+    "max_reached": "Maximum {max} tags atteint",
+    "edit_title": "Editer",
+    "edit_tooltip": "",
+    "update_success": "Tag mis à jour avec succès"
+  },
+  "empty": {
+    "no_files": "Vous n'avez aucun fichier pour le moment.",
+    "no_active_files": "Aucun fichier actif.",
+    "no_expired_files": "Aucun fichier expiré."
+  },
+  "errors": {
+    "load_failed": "Impossible de charger vos fichiers."
+  },
+  "toast": {
+    "file_deleted": "Fichier supprimé avec succès.",
+    "link_copied": "Lien copié dans le presse-papiers !",
+    "copy_failed": "Impossible de copier le lien.",
+    "delete_failed": "Impossible de supprimer le fichier."
+  }
+}
