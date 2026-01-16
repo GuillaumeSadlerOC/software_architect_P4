@@ -6,7 +6,6 @@ module.exports = defineConfig({
     
     // Pattern for finding tests
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
-    Support file de support
     supportFile: 'cypress/support/e2e.ts',
     
     pluginsFile: false,
