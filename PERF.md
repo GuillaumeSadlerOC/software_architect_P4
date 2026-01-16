@@ -25,55 +25,17 @@ docker run --rm -i \
   grafana/k6 run /scripts/load-test.js
 ```
 
-### Script utilisé (`tests/k6/load-test.js`)
-
-```sh
-import http from 'k6/http';
-import { check, sleep } from 'k6';
-
-export const options = {
-  stages: [
-    { duration: '10s', target: 20 }, // Ramp-up
-    { duration: '30s', target: 50 }, // Plateau 50 users
-    { duration: '10s', target: 0 },  // Ramp-down
-  ],
-  thresholds: {
-    http_req_duration: ['p(95)<500'], 
-    http_req_failed: ['rate<0.01'],
-  },
-};
-
-export default function () {
-  // Token valide d'un fichier existant (généré lors de l'upload)
-  const token = '29461d82-2f54-408c-899a-097d9e3e8c2c'; 
-  
-  const params = {
-    headers: { 'Host': 'api.datashare.localhost' },
-  };
-
-  // Accès via IP locale pour contourner le DNS Docker
-  const res = http.get(`http://127.0.0.1/api/files/${token}/metadata`, params);
-
-  check(res, {
-    'status is 200': (r) => r.status === 200,
-    'content present': (r) => r.body && r.body.includes('filename'),
-  });
-
-  sleep(1);
-}
-```
-
-### Résultats et Interprétation (Test du 02/01/2026)
+### Résultats et Interprétation (Test du 16/01/2026)
 
 Test réalisé sur environnement de développement Linux (Docker).
 
 | Métrique | Résultat | Objectif (SLO) | Statut |
 |---------------------|--------|-----|
-| **Requêtes Totales** | 1409 | - | ✅ |
-| **Débit (RPS)** | ~28 req/s | - | ✅ |
+| **Requêtes Totales** | 2119 | - | ✅ |
+| **Débit (RPS)** | ~51 req/s | - | ✅ |
 | **Taux d'erreur HTTP** | 0.00% | < 1% | ✅ Validé |
-| **Latence Moyenne** | 2.3 ms | - | 🚀 Excellent |
-| **Latence P95** | 3.29 ms | < 500 ms | 🚀 Excellent |
+| **Latence Moyenne** | 2.48 ms | - | 🚀 Excellent |
+| **Latence P95** | 2.73 ms | < 500 ms | 🚀 Excellent |
 
 **Interprétation** : L'API NestJS démontre une performance exceptionnelle sur ce scénario de lecture (I/O Bound). Avec 50 utilisateurs simultanés, le temps de réponse reste négligeable (< 4ms), prouvant l'efficacité de l'architecture asynchrone et l'optimisation de la base de données PostgreSQL.
 
