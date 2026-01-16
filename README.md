@@ -30,6 +30,7 @@ DataShare est une solution permettant le transfert de fichiers volumineux de man
 
 L'ensemble de la documentation technique et qualité est disponible dans ce dépôt :
 
+- **Documentation API (Swagger)** : Spécification OpenAPI complète et interactive des endpoints. 
 - **Documentation Technique** : Architecture, Choix technologiques, Modèle de données.
 - **Plan de Tests (TESTING.md)** : Stratégie de tests, couverture (94%), scénarios Cypress.
 - **Sécurité (SECURITY.md)** : Audit de vulnérabilités, mesures de protection.
@@ -80,11 +81,13 @@ docker compose -f docker-compose.yml up -d --build
 
 #### 5. Accéder à l'application
 
-```sh
-Frontend : http://datashare.localhost
-API : http://api.datashare.localhost
-Traefik Dashboard : http://localhost:8080
-```
+> Frontend : http://datashare.localhost
+
+> API : http://api.datashare.localhost
+
+> Swagger (Doc API) : http://api.datashare.localhost/api/docs
+
+> Traefik Dashboard : http://localhost:8080
 
 ## 🧪 Lancer les Tests
 
