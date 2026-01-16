@@ -2,13 +2,13 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   // Creating the application instance
   const app = await NestFactory.create(AppModule);
 
   // Retrieving the ConfigService
-  // Allows centralized access to variables loaded by ConfigModule
   const configService = app.get(ConfigService);
   const logger = new Logger('Bootstrap');
 
@@ -19,7 +19,7 @@ async function bootstrap() {
   // Configuring CORS (Cross-Origin Resource Sharing)
   // We retrieve the URL of the frontend defined in the .env file
   const frontendUrl = configService.get<string>('NEXT_PUBLIC_APP_URL') || 'http://localhost:3000';
-  
+
   app.enableCors({
     origin: [frontendUrl, 'http://localhost:3000'],
     credentials: true,
@@ -39,11 +39,22 @@ async function bootstrap() {
   // Docker: allows the application to properly close database connections before shutting down
   app.enableShutdownHooks();
 
+  // SWAGGER (OPENAPI)
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('DataShare API')
+    .setDescription('Secure File Transfer API Documentation')
+    .setVersion('1.0')
+    .addBearerAuth() // Enables authentication of requests via JWT in Swagger
+    .build();
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('api/docs', app, document);
+
   //Server startup
   const port = configService.get<number>('PORT') || 3000;
   await app.listen(port);
   
   logger.log(`🚀 Application is running on: http://localhost:${port}/api`);
+  logger.log(`📚 Swagger Documentation: http://localhost:${port}/api/docs`);
   logger.log(`🛡️  CORS enabled for: ${frontendUrl}`);
 }
 bootstrap();
